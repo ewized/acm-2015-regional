@@ -42,7 +42,13 @@ file_array(program_file, in_lines)
 file_array(out_file, out_lines)
 
 in_lines.append('')
-print('Verifying the output of the program and the sample')
+print('Verifying the output of the program and the sample...')
+print(('-' * 10) + '\tSTART\t' + ('-' * 10))
+
+for line in in_lines:
+    print(line)
+
+print(('-' * 10) + '\tEND\t' + ('-' * 10))
 if len(in_lines) == len(out_lines):
     for i in range(0, len(in_lines)):
         if not in_lines[i] == out_lines[i]:
