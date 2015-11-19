@@ -19,11 +19,12 @@ program = '.tmp/' + prefix
 # compile and create
 os_name = os.name
 print('Running on OS ' + os_name);
-if 'ix' in os_name:
+if os_name in ['mac', 'posix']:
     print('Compiling {} to {}'.format(arg, prefix))
     os.system('g++ -std=c++11 -o {} {}'.format(program, arg))
+    print('Running program...')
     os.system('cat {} | ./{} > {}'.format(in_file, program, program_file))
-elif 'windows' in os_name:
+elif 'nt' in os_name:
     print('windows support not added')
     sys.exit(1)
 
@@ -41,6 +42,7 @@ file_array(program_file, in_lines)
 file_array(out_file, out_lines)
 
 in_lines.append('')
+print('Verifying the output of the program and the sample')
 if len(in_lines) == len(out_lines):
     for i in range(0, len(in_lines)):
         if not in_lines[i] == out_lines[i]:
