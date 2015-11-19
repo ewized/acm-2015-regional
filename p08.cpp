@@ -15,6 +15,7 @@ int caculate(int n, int loop=0) {
         n /= 10;
         total *= a;
     }
+    cerr << "Total: " << total << " \tLoop:" << loop << endl;
     return caculate(total, loop + 1);
 }
 
