@@ -11,9 +11,8 @@ int caculate(int n, int loop=0) {
     }
     int total = 1;
     while (n > 0) {
-        int a = n % 10;
+        total *= n % 10;
         n /= 10;
-        total *= a;
     }
     cerr << "Total: " << total << " \tLoop:" << loop << endl;
     return caculate(total, loop + 1);
